@@ -39,7 +39,7 @@ const Header = () => {
             <div className="flex items-center justify-between px-8 py-3">
                 <img
                     className="w-44 md:w-56 drop-shadow-lg"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1198px-Netflix_2015_logo.svg.png"
+                    src="./Netflix-Symbol.png"
                     alt="netflix-logo"
                 />
                 <img  className="w-10 md:w-15 drop-shadow-lg rounded-full bg-amber-50"
