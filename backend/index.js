@@ -24,13 +24,19 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://netflix-clock-project.vercel.app",
   "https://netflix-clock-project-4s6v1jqdg-manish-s-projects22.vercel.app",
 ];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
+    origin: (origin, callback) => {
+      console.log("Request Origin:", origin);
+
+      // Postman ya direct browser requests ke liye
+      if (!origin) {
+        return callback(null, true);
+      }
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
@@ -39,6 +45,8 @@ app.use(
       return callback(new Error("CORS Not Allowed"));
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
@@ -69,7 +77,20 @@ app.use("/api/v1/user", userRoute);
 // ============================
 
 app.get("/", (req, res) => {
-  res.send("🚀 Netflix Backend Running");
+  res.status(200).send("🚀 Netflix Backend Running");
+});
+
+// ============================
+// ERROR HANDLER
+// ============================
+
+app.use((err, req, res, next) => {
+  console.error(err.message);
+
+  res.status(500).json({
+    success: false,
+    message: err.message,
+  });
 });
 
 // ============================
