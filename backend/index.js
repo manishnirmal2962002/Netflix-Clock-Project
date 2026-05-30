@@ -24,27 +24,20 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://vercel.com/manish-s-projects22/netflix-clock-project/2g2Gt8wexW2bTcfHq6QB1UAw3x1G",
+  "https://netflix-clock-project-4s6v1jqdg-manish-s-projects22.vercel.app",
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
 
-      // Allow Postman / Mobile Apps
-      if (!origin) {
-        return callback(null, true);
-      }
-
-      // Allow frontend URLs
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
 
-      // Block other origins
       return callback(new Error("CORS Not Allowed"));
     },
-
     credentials: true,
   })
 );
@@ -55,19 +48,10 @@ app.use(
 
 const connectDB = async () => {
   try {
-
-    if (!process.env.MONGO_URI) {
-      throw new Error("MONGO_URI missing");
-    }
-
     await mongoose.connect(process.env.MONGO_URI);
-
     console.log("✅ MongoDB Connected");
-
   } catch (error) {
-
     console.log("❌ MongoDB Connection Failed:", error.message);
-
     process.exit(1);
   }
 };
