@@ -1,6 +1,6 @@
 // export const API_END_POINT = "https://netflix-clock-project.onrender.com/api/v1/user";
 export const API_END_POINT =
-"https://https://netflix-clock-project-1.onrender.com/api/v1/user";
+"https://netflix-clock-project-1.onrender.com/api/v1/user";
 export const options = {
     method: 'GET',
     headers: {
