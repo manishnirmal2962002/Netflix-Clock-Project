@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://movietraliour.netlify.app",
+  "https://vercel.com/manish-s-projects22/netflix-clock-project/2g2Gt8wexW2bTcfHq6QB1UAw3x1G",
 ];
 
 app.use(
