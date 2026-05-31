@@ -38,12 +38,12 @@ const Header = () => {
         <header className="fixed top-0 left-0 w-full z-20 bg-gradient-to-b from-black/90 via-black/70 to-transparent backdrop-blur-md shadow-lg border-b border-gray-800">
             <div className="flex items-center justify-between px-8 py-3">
                 <img
-                    className="w-44 md:w-56 drop-shadow-lg"
-                    src="./Netflix-Symbol.png"
+                    className="w-44 md:w-15 drop-shadow-lg"
+                    src="src\assets\components\Netflix-Symbol.png"
                     alt="netflix-logo"
                 />
                 <img  className="w-10 md:w-15 drop-shadow-lg rounded-full bg-amber-50"
-                src="src\images\Shrii A J Tech Logo Design.png" alt="" />
+                src="src\assets\components\image.png" alt="" />
                 {user && (
                     <div className="flex items-center gap-3">
                         <IoIosArrowDropdown size="28px" color='white' className="mr-1" />
