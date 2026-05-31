@@ -26,8 +26,8 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://netflix-clock-project.vercel.app",
   "https://netflix-clock-project-4s6v1jqdg-manish-s-projects22.vercel.app",
+  "https://netflix-clock-project-z3cn.vercel.app"
 ];
-
 app.use(
   cors({
     origin: (origin, callback) => {
